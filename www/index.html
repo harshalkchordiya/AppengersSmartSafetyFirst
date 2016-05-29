@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title>Smart Security App</title>
+    <title>SmartSafetyFirst Application</title>
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
@@ -52,7 +52,7 @@
     </script>
 
     <script id="templates/home.html" type="text/ng-template">
-      <ion-view view-title="Smart Security">
+      <ion-view view-title="Smart Safety First">
         <ion-content class="padding" align="middle">
 		<p><button class="button button-block button-dark" disabled>Register Now</button></p>
 		<p><button class="button button-block button-dark" disabled>Login</button></p>		
@@ -65,7 +65,7 @@
     </script>
 	
     <script id="templates/scan_citizen.html" type="text/ng-template">
-      <ion-view view-title="Smart Security Feature for Citizen">
+      <ion-view view-title="Smart Safety Feature for Citizen">
         <ion-content class="padding" align="middle" ng-controller="testCtrl">
           <p>Click to scan the QR code</p>
 		  <p><button class="button button-block button-positive" ng-click="scanBarcode('Citizen')" >Scan QR Code</button></p>
@@ -80,7 +80,7 @@
       </ion-view>
     </script>
 	    <script id="templates/scan_police.html" type="text/ng-template">
-      <ion-view view-title="Smart Security Feature for Police">
+      <ion-view view-title="Smart Safety Feature for Police">
         <ion-content class="padding" align="middle" ng-controller="testCtrl">
           <p>Click to scan the QR code</p>
 		  <p><button class="button button-block button-assertive" ng-click="scanBarcode('Police')" >Scan QR Code</button></p>
@@ -98,7 +98,7 @@
       </ion-view>
     </script>
 	    <script id="templates/scan_rto.html" type="text/ng-template">
-      <ion-view view-title="Smart Security Feature for RTO">
+      <ion-view view-title="SSmart Safety Feature for RTO">
         <ion-content class="padding" align="middle" ng-controller="testCtrl">
           <p>Click to scan the QR code</p>
 		  <p><button class="button button-block button-royal" ng-click="scanBarcode('RTO')" >Scan QR Code</button></p>
