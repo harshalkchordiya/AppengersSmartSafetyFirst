@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Smart Security App</title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+	<script src="js/ng-cordova.min.js"></script>
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+	
+  </head>
+  <body ng-app="starter">
+
+   <ion-nav-bar class="bar-energized" align="middle">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+    </ion-nav-bar>
+             
+    <ion-nav-view></ion-nav-view>
+
+
+    <script id="templates/tabs.html" type="text/ng-template">
+      <ion-tabs class="tabs-icon-top tabs-energized">
+
+        <ion-tab title="Home" icon="ion-home" href="#/tab/home">
+          <ion-nav-view name="home-tab"></ion-nav-view>
+        </ion-tab>
+
+        <ion-tab title="About" icon="ion-ios-information" href="#/tab/about">
+          <ion-nav-view name="about-tab"></ion-nav-view>
+        </ion-tab>
+
+        <ion-tab title="Contact" icon="ion-ios-world" ui-sref="tabs.contact">
+          <ion-nav-view name="contact-tab"></ion-nav-view>
+        </ion-tab>
+
+      </ion-tabs>
+    </script>
+
+    <script id="templates/home.html" type="text/ng-template">
+      <ion-view view-title="Smart Security">
+        <ion-content class="padding" align="middle">
+		<p><button class="button button-block button-dark" disabled>Register Now</button></p>
+		<p><button class="button button-block button-dark" disabled>Login</button></p>		
+		<p><a class="button button-block button-positive" href="#/tab/scan_c">Try Smart Scan for Citizen</a></p>
+		<p><a class="button button-block button-assertive" href="#/tab/scan_p">Try Smart Scan for Police</a></p>
+		<p><a class="button button-block button-royal" href="#/tab/scan_r">Try Smart Scan for RTO Officer</a></p>
+
+        </ion-content>
+      </ion-view>
+    </script>
+	
+    <script id="templates/scan_citizen.html" type="text/ng-template">
+      <ion-view view-title="Smart Security Feature for Citizen">
+        <ion-content class="padding" align="middle" ng-controller="testCtrl">
+          <p>Click to scan the QR code</p>
+		  <p><button class="button button-block button-positive" ng-click="scanBarcode('Citizen')" >Scan QR Code</button></p>
+		  <p ng-model="result.text1">{{result.text1}}</p>
+		  <p ng-model="result.text2">{{result.text2}}</p>
+		  <p ng-model="result.text3">{{result.text3}}</p>
+		  <p ng-model="result.text4">{{result.text4}}</p>
+		  <p ng-model="result.text4a">{{result.text4a}}</p>
+
+
+        </ion-content>
+      </ion-view>
+    </script>
+	    <script id="templates/scan_police.html" type="text/ng-template">
+      <ion-view view-title="Smart Security Feature for Police">
+        <ion-content class="padding" align="middle" ng-controller="testCtrl">
+          <p>Click to scan the QR code</p>
+		  <p><button class="button button-block button-assertive" ng-click="scanBarcode('Police')" >Scan QR Code</button></p>
+		  <p ng-model="result.text1">{{result.text1}}</p>
+		  <p ng-model="result.text2">{{result.text2}}</p>
+		  <p ng-model="result.text3">{{result.text3}}</p>
+		  <p ng-model="result.text4">{{result.text4}}</p>
+		  <p ng-model="result.text4a">{{result.text4a}}</p>
+		  <p ng-model="result.text6">{{result.text6}}</p>
+		  <p>
+		  <img ng-src="{{result.text5}}" ng-model="result.text5" alt=""> </img>	
+		  </p>
+		  
+        </ion-content>
+      </ion-view>
+    </script>
+	    <script id="templates/scan_rto.html" type="text/ng-template">
+      <ion-view view-title="Smart Security Feature for RTO">
+        <ion-content class="padding" align="middle" ng-controller="testCtrl">
+          <p>Click to scan the QR code</p>
+		  <p><button class="button button-block button-royal" ng-click="scanBarcode('RTO')" >Scan QR Code</button></p>
+		  <p ng-model="result.text1">{{result.text1}}</p>
+		  <p ng-model="result.text2">{{result.text2}}</p>
+		  <p ng-model="result.text3">{{result.text3}}</p>
+		  <p ng-model="result.text4">{{result.text4}}</p>
+		  <p ng-model="result.text4a">{{result.text4a}}</p>
+		  <p>
+		  <img ng-src="{{result.text5}}" ng-model="result.text5" alt=""> </img>	
+		  </p>
+		  <p ng-model="result.text6">{{result.text6}}</p>
+
+        </ion-content>
+      </ion-view>
+    </script>
+
+
+    <script id="templates/about.html" type="text/ng-template">
+      <ion-view view-title="About">
+        <ion-content class="padding" align="middle">
+          <h3>This POC application has been developed by Appengers Team.</h3>
+
+        </ion-content>
+      </ion-view>
+    </script>
+
+
+    <script id="templates/contact.html" type="text/ng-template">
+      <ion-view title="Contact" >
+        <ion-content>
+          <div class="list">
+			<a class="item item-avatar" href="#">
+				<img src="img/93401.jpg">
+				<h2>Harshal Chordiya</h2>
+				<p>Software Developer</p>
+			</a>
+			<a class="item item-avatar" href="#">
+				<img src="img/68465.jpg">
+				<h2>Vikas Borate</h2>
+				<p>Software Architect</p>
+			</a>
+          </div>
+        </ion-content>
+      </ion-view>
+    </script>
+  </body>
+</html>
